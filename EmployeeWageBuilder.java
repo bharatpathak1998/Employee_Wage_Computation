@@ -1,25 +1,28 @@
-package UC3;
+package UC4;
 
 import java.util.Random;
 
 public class EmployeeWageBuilder {
     public static void main(String[] args) {
-        int FullTime=1;
-        int PartTime=2;
+        final int FullTime=1;
+        final int PartTime=2;
         int wagePerHour=20;
         int workingHrs=0;
 
         Random random = new Random();
         int empCheck = random.nextInt(3);
 
-        if(empCheck==FullTime) {
-            workingHrs=8;
-            System.out.println("Employee is Present Full Time");
-        } else if (empCheck==PartTime) {
-            workingHrs=4;
-            System.out.println("Employee is Present Part Time");
-        } else {
-            System.out.println("Employee is Absent");
+        switch(empCheck){
+            case FullTime:
+                System.out.println("Employee is present Full Time");
+                workingHrs=8;
+                break;
+            case PartTime:
+                System.out.println("Employee is present Part Time");
+                workingHrs=4;
+                break;
+            default:
+                System.out.println("Employee is Absent");
         }
         int empWage = workingHrs * wagePerHour;
         System.out.println("Employee Wage = "+empWage);
